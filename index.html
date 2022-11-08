@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="大学英语六级真题对答案">
+    <meta name="description" content="这个网页可以在你做大学英语四六级时，帮你快速核对答案，为你节省1-3分钟时间。">
+    <meta name="author" content="liuwei">
+    <title>Check Now</title>
+    <link rel="shortcut icon" type="image/x-icon" href="CheckNow.png" />
+    <link rel="stylesheet" href="checknow.css">
+    <script src="checknow.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">            
+            <div class="logo">Check Now!</div> 
+            <div class="source">
+                <p>声明：该试题由"英语真题在线"提供，如您无需使用自动对答案功能，可直接访问<a href="https://zhenti.burningvocabulary.com/" target="_blank">英语真题在线。</a></p> 
+            </div>
+        </div>
+
+        <div class="middle">
+            <div class="leftOperation">
+                <!-- <h3>大学英语四六级真题</h3>  -->
+                <div class="paperSelect">
+                    <fieldset>
+                        <legend>试题选择</legend>
+                        <form action="">
+                            模拟题选择：
+                            <select class="testNumber" id="testPaper" onchange="paperChoice()">
+                                <option value="">-----请选择试题-----</option>
+                                <optgroup label="六级">                            
+                                    <option value="">2022年06月六级真题(第1套)</option>
+                                    <option value="">2021年12月六级真题(第1套)</option>
+                                    <option value="">2021年06月六级真题(第1套)</option>
+                                    <option value="">2020年12月六级真题(第1套)</option>
+                                    <option value="">2020年09月六级真题(第1套)</option>
+                                    <option value="">2019年12月六级真题(第1套)</option>    
+                                </optgroup>                        
+                                <optgroup label="四级"> 
+                                    <option value="">2022年06月四级真题(第1套)</option>
+                                    <option value="">2021年12月四级真题(第1套)</option>
+                                    <option value="">2021年06月四级真题(第1套)</option>
+                                    <option value="">2020年12月四级真题(第1套)</option>
+                                    <option value="">2020年09月四级真题(第1套)</option>
+                                    <option value="">2019年12月四级真题(第1套)</option>
+                                </optgroup>
+                        </select>
+                            <div class="testTime">
+                                考试用时：
+                                <input type="text" id="textTime" readonly="true">
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                
+    
+                <div class="operation">
+                    <fieldset>
+                        <legend>考试操作</legend>
+                        <button type="button" onclick="start()" id="btnStart">开始考试</button>
+                        <button type="button" onclick="timePause()" id="btnPause" disabled="true">暂停考试</button>
+                        <button type="button" onclick="Finish()" id="btnFinish" disabled="true">结束考试</button>
+                        <button type="button" onclick="save()" id="btnSave" disabled="true">保存考试结果</button>
+                    </fieldset>
+                </div>
+                    
+                <fieldset>
+                    <legend>作答区域</legend>
+                    <form action="">
+                        <div class="line_1"> 
+                            <div class="questionNumber">
+                                第
+                                <select class="selectQuestion" id="questionNO" onchange="selectChange()">
+                                <optgroup label="听力">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                    <option value="">8</option>
+                                    <option value="">9</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                    <option value="">13</option>
+                                    <option value="">14</option>
+                                    <option value="">15</option>
+                                    <option value="">16</option>
+                                    <option value="">17</option>
+                                    <option value="">18</option>
+                                    <option value="">19</option>
+                                    <option value="">20</option>
+                                    <option value="">21</option>
+                                    <option value="">22</option>
+                                    <option value="">23</option>
+                                    <option value="">24</option>
+                                    <option value="">25</option>
+                                </optgroup>
+                                    
+                                <optgroup label="阅读">                            
+                                    <option value="">26</option>
+                                    <option value="">27</option>
+                                    <option value="">28</option>
+                                    <option value="">29</option>
+                                    <option value="">30</option>
+                                    <option value="">31</option>
+                                    <option value="">32</option>
+                                    <option value="">33</option>
+                                    <option value="">34</option>
+                                    <option value="">35</option>                        
+                                    <option value="">36</option>
+                                    <option value="">37</option>
+                                    <option value="">38</option>
+                                    <option value="">39</option>
+                                    <option value="">40</option>
+                                    <option value="">41</option>
+                                    <option value="">42</option>
+                                    <option value="">43</option>
+                                    <option value="">44</option>
+                                    <option value="">45</option>
+                                    <option value="">46</option>
+                                    <option value="">47</option>
+                                    <option value="">48</option>
+                                    <option value="">49</option>
+                                    <option value="">50</option>
+                                    <option value="">51</option>
+                                    <option value="">52</option>
+                                    <option value="">53</option>
+                                    <option value="">54</option>
+                                    <option value="">55</option>                       
+                                </optgroup>                         
+                                </select> 题
+                            </div>
+        
+        
+                            <div class="questionOperation">
+                                <button type="button" onclick="selectedIndexChange('-')" id="pre">上一题</button> <br>
+                                <button type="button" onclick="selectedIndexChange('+')" id="next">下一题</button> <br>
+                            </div>
+        
+                            <div class="autoJump">
+                                <input type="checkbox" id="autoNext">自动跳转下一题
+                            </div>        
+
+
+                        </div>
+
+                        <div class="line_2"> 
+                            <div class="radioBtn">
+                                <input type="radio" name="optionItem" onclick="radioBtn('A')" id="A" disabled="true">A
+                                <input type="radio" name="optionItem" onclick="radioBtn('B')" id="B" disabled="true">B
+                                <input type="radio" name="optionItem" onclick="radioBtn('C')" id="C" disabled="true">C
+                                <input type="radio" name="optionItem" onclick="radioBtn('D')" id="D" disabled="true">D
+                            </div>
+                            <div class="radioBtn" id="E_O" hidden="true">
+                                <input type="radio" name="optionItem" onclick="radioBtn('E')" id="E" disabled="true">E
+                                <input type="radio" name="optionItem" onclick="radioBtn('F')" id="F" disabled="true">F
+                                <input type="radio" name="optionItem" onclick="radioBtn('G')" id="G" disabled="true">G
+                                <input type="radio" name="optionItem" onclick="radioBtn('H')" id="H" disabled="true">H
+                                <input type="radio" name="optionItem" onclick="radioBtn('I')" id="I" disabled="true">I
+                                <input type="radio" name="optionItem" onclick="radioBtn('J')" id="J" disabled="true">J
+                                <input type="radio" name="optionItem" onclick="radioBtn('K')" id="K" disabled="true">K
+                                <input type="radio" name="optionItem" onclick="radioBtn('L')" id="L" disabled="true">L
+                                <input type="radio" name="optionItem" onclick="radioBtn('M')" id="M" disabled="true">M
+                                <input type="radio" name="optionItem" onclick="radioBtn('N')" id="N" disabled="true">N
+                                <input type="radio" name="optionItem" onclick="radioBtn('O')" id="O" disabled="true">O
+                            </div>
+                        </div>                 
+                        
+                        <div class="line_3">
+                            <p>听力(01-25题)，阅读(26-55题)</p>
+                        </div>
+                    </form>
+                </fieldset>
+    
+                <fieldset>
+                    <legend>答题信息</legend>
+                    <form action="">
+                        <div class="txt">
+                            <p>答题记录：</p> 
+                            <textarea title="答题记录" cols="50" rows="14" id="txtLog"></textarea>
+                        </div>
+                        <div class="txt">
+                            <p>考试结果：</p>                  
+                            <textarea title="点击“保存考试结果”按钮保存考试信息" cols="50" rows="14" id="txtResult"></textarea>
+                        </div>  
+                    </form>
+                </fieldset>
+    
+            </div>
+            <div class="rightPaper">                
+                <div class="paper" id="id_iframe">
+                    <iframe class="stylePaper" id="paperNO" src="https://zhenti.burningvocabulary.com/cet6/2022-06/01" ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">Yo-Yo, Check Now !</div>
+    </div>
+
+</body>
+
+</html>
