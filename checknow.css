@@ -9,16 +9,9 @@ html, body {
 
 .container {
     width: 100%;
-    height: 850px;
+    height: 985px;
     /* background-color: blue; */
 }
-
-h3 {
-    display: block;
-    text-align: center;
-    /* line-height: 50px; */
-    margin: 5px;
- }
 
 .container .top {
     background-color: gainsboro;
@@ -29,7 +22,7 @@ h3 {
 }
 
 .top .logo {
-    width: 400px;
+    width: 100%;
     height: 100%;
     float: left;
     /* background-color: darkkhaki; */
@@ -37,13 +30,12 @@ h3 {
 
 .container .middle {
     height: 100%;
-    /* background-color: red; */
 }
 
 .container .bottom {
     background-color: gainsboro;
     height: 50px;
-    line-height: 50px;
+    /* line-height: 50px; */
     text-align: center;
     clear: both;
 }
@@ -63,21 +55,45 @@ h3 {
     width: calc(100% - 400px); 
     height: calc(100%-100px);
     float: left;
-    /* background-color: blueviolet; */
+    background-color: #F1F3F4;
     position: absolute;
     top: 50px;
     right: 0;
-    border: 1px solid;
- 
+    border: 1px solid; 
 }
 
 
-iframe {
+.paper iframe {
     display: block;
-    height: 848px;
+    height: 922.5px;
     width: 100%;
+    margin-bottom: 10px;
     border: none;
 }
+
+.audioLeft {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    float: left;
+    /* background-color: rebeccapurple; */
+}
+
+.audioRight {
+    float: right;
+    width: calc(100% - 150px);
+    height: 50px;
+    /* background-color: red; */
+}
+
+audio {
+    /* float: right; */
+    width: 100%;
+    height: 50px;
+    /* background-color: aqua; */
+}
+
+
 
 fieldset {
     margin: 5px;
