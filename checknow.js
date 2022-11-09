@@ -1,16 +1,17 @@
 var yourAnswer = new Array;
-var paperLink = ['https://zhenti.burningvocabulary.com/cet6/2022-06/01',
-                'https://zhenti.burningvocabulary.com/cet6/2021-12/01',
-                'https://zhenti.burningvocabulary.com/cet6/2021-06/01',
-                'https://zhenti.burningvocabulary.com/cet6/2020-12/01',
-                'https://zhenti.burningvocabulary.com/cet6/2020-09/01',
-                'https://zhenti.burningvocabulary.com/cet6/2019-12/01',
-                'https://zhenti.burningvocabulary.com/cet4/2022-06/01',
-                'https://zhenti.burningvocabulary.com/cet4/2021-12/01',
-                'https://zhenti.burningvocabulary.com/cet4/2021-06/01',
-                'https://zhenti.burningvocabulary.com/cet4/2020-12/01',
-                'https://zhenti.burningvocabulary.com/cet4/2020-09/01',
-                'https://zhenti.burningvocabulary.com/cet4/2019-12/01',]
+var paperLink = ['2022年06月六级真题(第1套)',
+                '2021年12月六级真题(第1套)',
+                '2021年06月六级真题(第1套)',
+                '2020年12月六级真题(第1套)',
+                '2020年09月六级真题(第1套)',
+                '2019年12月六级真题(第1套)', 
+                '2022年06月四级真题(第1套)',
+                '2021年12月四级真题(第1套)',
+                '2021年06月四级真题(第1套)',
+                '2020年12月四级真题(第1套)',
+                '2020年09月四级真题(第1套)',
+                '2019年12月四级真题(第1套)']
+
 
 
 function start() {
@@ -29,12 +30,10 @@ function paperChoice(){
     if (document.getElementById("testPaper").selectedIndex == 0) {
         alert('请先选择试题！'); //如果未选择试题，弹出提示       
     } else {
-        document.getElementById("paperNO").src = paperLink[document.getElementById("testPaper").selectedIndex -1];
-        console.log(document.getElementById("paperNO").src);
-    }
-           
-        
-    // alert('hhhhh')
+        document.getElementById("paperNO").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.pdf';
+        document.getElementById("listening").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.mp3';
+        document.getElementById("audioLeft").innerHTML = paperLink[document.getElementById("testPaper").selectedIndex -1]+'听力音频';
+    }  
 }
 
 var testTime = 0;
