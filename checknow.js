@@ -21,7 +21,8 @@ function start() {
         radiobtnEnable(1);
         document.getElementById('btnStart').disabled = true; //禁用开始按钮
         document.getElementById('btnPause').disabled = false; //启用暂停按钮
-        document.getElementById("btnFinish").disabled = false; //启用结束考试按钮        
+        document.getElementById("btnFinish").disabled = false; //启用结束考试按钮
+        document.getElementById("testPaper").disabled = true; //禁用模拟题选择下拉框 
         timeControll(1);
     }
 }
@@ -262,6 +263,7 @@ function adjustIframe(){
 
 //结束答题
 function Finish() {
+    document.getElementById("testPaper").disabled = false; //启用模拟题选择下拉框
     if (yourAnswer.length < Standard_Answer1.length || yourAnswer.includes("未作答")) {
         if (confirm("答题尚未完成，是否提交？") == true) {
             for (i = 0; i < Standard_Answer1.length; i++) {
