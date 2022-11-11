@@ -34,6 +34,17 @@ function paperChoice(){
         document.getElementById("paperNO").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.pdf';
         document.getElementById("listening").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.mp3';
         document.getElementById("audioLeft").innerHTML = paperLink[document.getElementById("testPaper").selectedIndex -1]+'听力音频';
+        radiobtnEnable(0);
+        document.getElementById('btnStart').disabled = false; //禁用开始按钮
+        document.getElementById('btnPause').disabled = true; //启用暂停按钮
+        document.getElementById("btnFinish").disabled = true; //启用结束考试按钮 
+        document.getElementById("btnSave" ).disabled = true; //启用结束考试按钮 
+        document.getElementById('textTime').value ='';  //清空计时文本框
+        testTime= 0 ;   //时间清零
+        document.getElementById("questionNO").options[0].selected = true;   //题号选择跳转至第一题
+        yourAnswer.length = 0 ; //将答案数组清空
+        document.getElementById("txtLog").value = '';    //清空答题记录多行文本框
+        document.getElementById("txtResult").value = '';    //清空考试结果信息多行文本框
     }  
 }
 
