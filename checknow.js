@@ -344,15 +344,11 @@ function answerCheck(arry_Standard_Anwser) {
     for (i = 0; i < Standard_Answer1.length; i++) {
         if (yourAnswer[i] != arry_Standard_Anwser[i]) {
             Error_Sum++;
-            if (i < 15) {
+            if (i < 25) {
                 Error_Listening++;
-            } else if (i >= 15 && i < 35) {
-                Error_Vocabulary++;
-            } else if (i >= 35 && i < 55) {
-                Error_ClozeTest++;
-            } else if (i >= 55 && i < 75) {
+            } else if (i >= 25 && i < 55) {
                 Error_Reading++;
-            }
+            } 
             var wrongMessage = (yourAnswer[i] == "未作答") ? ("题：您未作答") : ("题：您的答案为" + yourAnswer[i]);
             txtResult = txtResult + ("第" + (i + 1) + wrongMessage + "，而参考答案为" + arry_Standard_Anwser[i] + "(×)" + "\r\n");
         } else {
@@ -360,7 +356,7 @@ function answerCheck(arry_Standard_Anwser) {
         }
     }
     var Score_Lose = Error_Listening + Error_ClozeTest + Error_Reading * 2 + Error_Vocabulary * 1.5;
-    document.getElementById("txtResult").value = txtResult + ("考试结果详情：" + "\r\n" + "您此次考试用时" + Math.floor(testTime / 60) + "分" + testTime % 60 + "秒，" + "总共错了" + Error_Sum + "题。" + "\r\n" + "其中听力错了" + Error_Listening + "题，词汇题错了" + Error_Vocabulary + "题，" + "\r\n" + "完型填空错了" + Error_ClozeTest + "题，阅读错了" + Error_Reading + "题。" + "\r\n" + "累计扣分" + Score_Lose + "分，总得分为" + (105 - Score_Lose) + "分，得分率为" + Math.round((105 - Score_Lose) * 100 / 105, 2) + "%。");
+    document.getElementById("txtResult").value = txtResult + ("考试结果详情：" + "\r\n" + "您此次考试用时" + Math.floor(testTime / 60) + "分" + testTime % 60 + "秒，" + "总共错了" + Error_Sum + "题。" + "\r\n" + "其中听力错了" + Error_Listening + "题，阅读错了" + Error_Reading + "题。" );
     document.getElementById("txtResult").scrollTop = document.getElementById("txtResult").scrollHeight;
 }
 
