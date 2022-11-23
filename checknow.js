@@ -13,7 +13,6 @@ var paperLink = ['2022年06月六级真题(第1套)',
                 '2019年12月四级真题(第1套)']
 
 
-
 function start() {
     if (document.getElementById("testPaper").selectedIndex == 0) {
         alert('请先选择试题！'); //如果未选择试题，弹出提示       
@@ -21,8 +20,8 @@ function start() {
         radiobtnEnable(1);
         document.getElementById('btnStart').disabled = true; //禁用开始按钮
         document.getElementById('btnPause').disabled = false; //启用暂停按钮
-        document.getElementById("btnFinish").disabled = false; //启用结束考试按钮
-        document.getElementById("testPaper").disabled = true; //禁用模拟题选择下拉框 
+        document.getElementById("btnFinish").disabled = false; //启用结束考试按钮 
+        document.getElementById("testPaper").disabled = true; //禁用模拟题选择下拉框        
         timeControll(1);
     }
 }
@@ -31,10 +30,13 @@ function paperChoice(){
     if (document.getElementById("testPaper").selectedIndex == 0) {
         alert('请先选择试题！'); //如果未选择试题，弹出提示       
     } else {
-        document.getElementById("paperNO").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.pdf';
+        document.getElementById("paperNO").src =decodeURI(paperLink[document.getElementById("testPaper").selectedIndex -1])+'.pdf';
+        document.getElementById("paperNO").src ='./pdfjs-dist/web/viewer.html?file=' +   document.getElementById("paperNO").src; 
         document.getElementById("listening").src = paperLink[document.getElementById("testPaper").selectedIndex -1]+'.mp3';
         document.getElementById("audioLeft").innerHTML = paperLink[document.getElementById("testPaper").selectedIndex -1]+'听力音频';
         radiobtnEnable(0);
+        console.log(decodeURI(document.getElementById("paperNO").src));
+
         document.getElementById('btnStart').disabled = false; //禁用开始按钮
         document.getElementById('btnPause').disabled = true; //启用暂停按钮
         document.getElementById("btnFinish").disabled = true; //启用结束考试按钮 
@@ -44,7 +46,7 @@ function paperChoice(){
         document.getElementById("questionNO").options[0].selected = true;   //题号选择跳转至第一题
         yourAnswer.length = 0 ; //将答案数组清空
         document.getElementById("txtLog").value = '';    //清空答题记录多行文本框
-        document.getElementById("txtResult").value = '';    //清空考试结果信息多行文本框
+        document.getElementById("txtResult").value = '';    //清空考试结果信息多行文本框        
     }  
 }
 
