@@ -117,6 +117,7 @@ fieldset {
 }
 
 .operation button {
+    -webkit-appearance: none;
     margin: 5px 3px;    
 }
 
